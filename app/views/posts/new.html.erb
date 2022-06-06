@@ -15,6 +15,10 @@
     <%= form.date_field "posted_on" %>
   </p>
   <p>
+    <%= form.label "uploaded_image" %>
+    <%= form.file_field "uploaded_image", :accept => "image/png,image/jpg,image/jpeg,image/gif" %>
+  </p>
+  <p>
     <%= form.submit %>
   </p>
   <%= form.hidden_field "place_id" %>

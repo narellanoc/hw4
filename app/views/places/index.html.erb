@@ -1,5 +1,6 @@
 <h1>Places</h1>
 
+<% if @current_user %>  
 <ul>
   <% for place in @places %>
     <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
@@ -7,8 +8,9 @@
 </ul>
 
 <p>
-  <% if @current_user %>  
+  
   <a href="/places/new">New place</a>
-  <% else %>  
-  <% end %>
 </p>
+<% else %>
+  Login first!
+<% end %>
