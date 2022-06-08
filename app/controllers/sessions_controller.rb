@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         
         redirect_to "/places"
       else
-        flash["notice"] = "Wrong Information"
+        flash["notice"] = "Try Again"
         redirect_to "/login"
       end
     else
@@ -20,7 +20,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    flash["notice"] = "Bye"
     session["user_id"] = nil
     redirect_to "/login"
   end
