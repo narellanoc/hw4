@@ -1,27 +1,36 @@
+<div class="row">
 
-<h1><%= @place["name"] %></h1>
+<p><h1><b><%= @place["name"] %></h1></b></p>
 
 <% if @current_user %>  
-  <h2>My Posts</h2>
-   
+ <p><h2><u>Activities:</u></h2></p>
+  
   <% for post in @posts %>
+  <div class="col-md-3 col-sm-6">
   <h3><%= post["title"] %></h3>
   <h4><%= post["posted_on"] %></h4>
-  <p><%= post["description"] %></p>
+  
       <% if post.uploaded_image.attached? %>
         <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
       <% else %>
       <% end %>
+  <p><%= post["description"] %></p>
+  </div>
   <% end %>
 
+<p>
+</p>
+  
   <p>
   <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-outline-secondary">New Post</a>
   </p>
+
 
 <% else %>  
 Please login first
 <% end %>
 
 <p>
+
   <a href="/places" class="btn btn-outline-secondary">Back to All Places</a>
 </p>
